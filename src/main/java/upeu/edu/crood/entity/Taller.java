@@ -5,7 +5,7 @@
 package upeu.edu.crood.entity;
 
 import java.io.Serializable;
-import java.sql.Date;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,6 +13,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import lombok.Data;
 
@@ -27,7 +28,7 @@ public class Taller implements Serializable{
     @Id
     @Column(name="tall_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer tallId;
+    private long tallId;
     
     @Column(name="tall_tema")
     private String tallTema;
@@ -44,7 +45,7 @@ public class Taller implements Serializable{
     @Column(name="tall_direccion")
     private String tallDireccion;
     
-    @ManyToOne
-    @JoinColumn(name = "programa_prog_id")
-    private Programa programa;   
+   // @OneToMany
+    //@JoinColumn(name = "tall_pers_id") no pongas join
+   // private List<Persona> personas;   
 }

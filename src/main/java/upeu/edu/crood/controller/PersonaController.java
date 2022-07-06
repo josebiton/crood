@@ -4,6 +4,7 @@
  */
 package upeu.edu.crood.controller;
 
+
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -15,44 +16,44 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import upeu.edu.crood.entity.Taller;
-import upeu.edu.crood.service.TallerService;
+import upeu.edu.crood.entity.Persona;
+import upeu.edu.crood.service.PersonaService;
 
 /**
  *
- * @author LENOVO
+ * @author 51950
  */
 @RestController
-@RequestMapping("/taller")
-public class TallerController {
-   @Autowired
-   private TallerService tallerService;
-   
-   @GetMapping("/all")
-    public List<Taller> findAll() {
-        return tallerService.findAll();
+@RequestMapping("/persona")
+public class PersonaController {
+
+    @Autowired
+    private PersonaService personaService;
+
+    @GetMapping("/all")
+    public List<Persona> findAll() {
+        return personaService.findAll();
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Taller> findById(@PathVariable Long id) {
-        Taller taller = tallerService.findById(id);
-        return ResponseEntity.ok(taller);
+    public ResponseEntity<Persona> findById(@PathVariable Long id) {
+        Persona persona = personaService.findById(id);
+        return ResponseEntity.ok(persona);
     }
 
     @DeleteMapping("/{id}")
     public void deleteById(@PathVariable Long id) {
-        tallerService.deleteById(id);
+        personaService.deleteById(id);
     }
 
     @PostMapping("/save")
-    public Taller save(@RequestBody Taller taller) {
-        return tallerService.save(taller);
+    public Persona save(@RequestBody Persona persona) {
+        return personaService.save(persona);
     }
 
     @PutMapping("/update")
-    public Taller update(@RequestBody Taller taller) {
-        //Taller aut = new Taller(taller.getId(),taller.getNombres(),taller.getApellidos(), taller.getEstado());        
-        return tallerService.save(taller);
+    public Persona update(@RequestBody Persona persona) {
+        //Persona aut = new Persona(persona.getId(),persona.getNombres(),persona.getApellidos(), persona.getEstado());        
+        return personaService.save(persona);
     }
-   
 }

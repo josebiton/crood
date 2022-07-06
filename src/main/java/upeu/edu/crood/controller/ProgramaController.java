@@ -4,6 +4,7 @@
  */
 package upeu.edu.crood.controller;
 
+
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -15,44 +16,44 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import upeu.edu.crood.entity.Taller;
-import upeu.edu.crood.service.TallerService;
+import upeu.edu.crood.entity.Programa;
+import upeu.edu.crood.service.ProgramaService;
 
 /**
  *
- * @author LENOVO
+ * @author 51950
  */
 @RestController
-@RequestMapping("/taller")
-public class TallerController {
-   @Autowired
-   private TallerService tallerService;
-   
-   @GetMapping("/all")
-    public List<Taller> findAll() {
-        return tallerService.findAll();
+@RequestMapping("/programa")
+public class ProgramaController {
+
+    @Autowired
+    private ProgramaService programaService;
+
+    @GetMapping("/all")
+    public List<Programa> findAll() {
+        return programaService.findAll();
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Taller> findById(@PathVariable Long id) {
-        Taller taller = tallerService.findById(id);
-        return ResponseEntity.ok(taller);
+    public ResponseEntity<Programa> findById(@PathVariable Long id) {
+        Programa programa = programaService.findById(id);
+        return ResponseEntity.ok(programa);
     }
 
     @DeleteMapping("/{id}")
     public void deleteById(@PathVariable Long id) {
-        tallerService.deleteById(id);
+        programaService.deleteById(id);
     }
 
     @PostMapping("/save")
-    public Taller save(@RequestBody Taller taller) {
-        return tallerService.save(taller);
+    public Programa save(@RequestBody Programa programa) {
+        return programaService.save(programa);
     }
 
     @PutMapping("/update")
-    public Taller update(@RequestBody Taller taller) {
-        //Taller aut = new Taller(taller.getId(),taller.getNombres(),taller.getApellidos(), taller.getEstado());        
-        return tallerService.save(taller);
+    public Programa update(@RequestBody Programa programa) {
+        //Programa aut = new Programa(programa.getId(),programa.getNombres(),programa.getApellidos(), programa.getEstado());        
+        return programaService.save(programa);
     }
-   
 }

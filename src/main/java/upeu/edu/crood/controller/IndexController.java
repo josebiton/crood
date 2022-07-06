@@ -10,13 +10,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 /**
  *
- * @author LENOVO
+ * @author 51950
  */
 @Controller
-public class indexController {
+public class IndexController {
+
     @GetMapping("/")
     public String home(Model model) {
         model.addAttribute("titulo", "Bienvenido a Thymeleaf");
         return "index";
     }
+
 }

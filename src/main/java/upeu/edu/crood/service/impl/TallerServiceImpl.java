@@ -18,34 +18,37 @@ import upeu.edu.crood.service.TallerService;
  */
 @Service
 public class TallerServiceImpl implements TallerService{
+    
     @Autowired
     private TallerRepository tallerRepository;
-    @Transactional(readOnly = true)
 
+
+    @Transactional
     @Override
     public List<Taller> findAll() {
-    return (List<Taller>)tallerRepository.findAll();
+        return (List<Taller>) tallerRepository.findAll();
     }
 
     @Override
-    public Taller findById(Integer id) {
+    public Taller findById(Long id) {
     return tallerRepository.findById(id).orElse(null);
     }
 
     @Override
     public Taller save(Taller taller) {
     return tallerRepository.save(taller);
-    
     }
 
     @Override
     public void delete(Taller taller) {
-      tallerRepository.delete(taller);
+    tallerRepository.delete(taller);
     }
 
     @Override
-    public void deleteById(Integer id) {
-    tallerRepository.deleteById(id);
+    public void deleteById(Long id) {
+        tallerRepository.deleteById(id);
     }
+
+  
     
 }

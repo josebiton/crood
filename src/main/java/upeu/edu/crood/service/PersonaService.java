@@ -4,21 +4,23 @@
  */
 package upeu.edu.crood.service;
 
+
 import java.util.List;
-import upeu.edu.crood.entity.Taller;
+import upeu.edu.crood.entity.Persona;
 
 /**
  *
- * @author LENOVO
+ * @author 51950
  */
-public interface TallerService {
-    public List<Taller> findAll();
-    
-    public Taller findById(Long id);
+public interface PersonaService {
 
-    public Taller save(Taller taller);
+    public List<Persona> findAll();
 
-    public void delete(Taller taller);
+    public Persona findById(Long id);
+
+    public Persona save(Persona employee);
+
+    public void delete(Persona employee);
 
     public void deleteById(Long id);
 }

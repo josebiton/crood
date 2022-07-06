@@ -29,13 +29,17 @@ public class Programa implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "prog_id")
-    private Integer id;
+    private Long id;
     
-    private String prog_nombre;
-    
+    @Column(name="prog_descripcion")
     private String prog_descripcion;
     
-    @JsonIgnore
+    @Column(name="prog_nombre")
+    private String prog_nombre;
+    
+ 
+    
+   /* @JsonIgnore
     @OneToMany(fetch = FetchType.LAZY,mappedBy = "programa")
-    private List<Taller> talleres;
+    private List<Taller> talleres;*/
 }

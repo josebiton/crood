@@ -11,13 +11,29 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  *
- * @author LENOVO
+ * @author 51950
  */
 @Controller
 @RequestMapping("/menu")
 public class MenuController {
-   public String indexAutor(Model model){
-        model.addAttribute("mensaje", "Taller");
-        return "Talleres/taller";
+    
+    @GetMapping("/persona")
+    public String indexAutor(Model model){
+        model.addAttribute("mensaje", "Personas");
+        return "personas/persona";
+ 
+   }
+    
+    @GetMapping("/programa")
+    public String indexPrograma(Model model){
+        model.addAttribute("mensaje", "Programas");
+        return "programas/programa";
     }
+     @GetMapping("/taller")
+     public String indexTaller(Model model){
+     model.addAttribute("mensaje","Talleres");
+     return "talleres/taller";
+     }
+    
+    
 }

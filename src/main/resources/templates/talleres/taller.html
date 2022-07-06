@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}">
+    <head th:replace="layout/layout :: head">
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div class="container-fluid" layout:fragment="page-content">            
+            <nav class="navbar navbar-light bg-light m-2"> 
+                <h4 class="ps-3"><i class="fa-solid fa-user-tie me-2"></i>Talleres</h4>
+            </nav>
+            <div class="container mt-3">
+                <button type="button" class="btn btn-danger mt-4 mb-4" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">Nuevo</button>
+                <div class="row">
+                    <div class="col">
+                        <table class="table table-bordered" id="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Tema</th>
+                                    <th scope="col">Fecha</th>
+                                    <th scope="col">Time</th>
+                                    <th scope="col">Lugar</th>
+                                    <th scope="col">Direccion</th>
+                                    <th scope="col" colspan="2" style="text-align: center">Acción</th>
+                                </tr>
+                            </thead>
+                            <tbody>                            
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!-- MODAL Guardar-->          
+
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Nuevo Taller</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="mb-3">
+                                    <label for="recipient-name" class="col-form-label">Tema:</label>
+                                    <input type="text" class="form-control" id="tema">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="recipient-name" class="col-form-label">Fecha:</label>
+                                    <input type="text" class="form-control" id="fecha">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="recipient-name" class="col-form-label">Time:</label>
+                                    <input type="text" class="form-control" id="time">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="recipient-name" class="col-form-label">Lugar:</label>
+                                    <input type="text" class="form-control" id="lugar">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="recipient-name" class="col-form-label">Direccion:</label>
+                                    <input type="text" class="form-control" id="direccion">
+                                </div>
+                               
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                            <button type="button" class="btn btn-primary" id="guardar">Guardar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>  
+            <!--Modal Editar-->
+            <div class="modal fade" id="editarModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Editar Persona</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="mb-3">
+                                    <label for="recipient-name" class="col-form-label">Tema:</label>
+                                    <input type="text" class="form-control" id="edit_tema">
+                                    <input type="hidden" id="edit_id" value="0">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="recipient-name" class="col-form-label">Fecha:</label>
+                                    <input type="text" class="form-control" id="edit_fecha">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="recipient-name" class="col-form-label">Time:</label>
+                                    <input type="text" class="form-control" id="edit_time">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="recipient-name" class="col-form-label">Lugar:</label>
+                                    <input type="text" class="form-control" id="edit_lugar">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="recipient-name" class="col-form-label">Direccion:</label>
+                                    <input type="text" class="form-control" id="edit_direccion">
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                            <button type="button" class="btn btn-primary" id="modificar">Guardar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- MODAL -->
+        </div>
+
+        <!--OTRO SCRIPTS PARA PAGINAS-->
+    <th:block layout:fragment="page-scripts">
+        <script th:src="@{/js/taller.js}"></script>
+    </th:block>
+
+</body>
+</html>

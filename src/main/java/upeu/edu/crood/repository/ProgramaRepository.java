@@ -6,13 +6,13 @@ package upeu.edu.crood.repository;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
-import upeu.edu.crood.entity.Taller;
+import upeu.edu.crood.entity.Programa;
 
 /**
  *
  * @author LENOVO
  */
 @Repository
-public interface TallerRepository extends CrudRepository<Taller, Long>{
+public interface ProgramaRepository extends CrudRepository<Programa,Long>{
     
 }
